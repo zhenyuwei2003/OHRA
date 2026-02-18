@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<robot name="DexterousHand">
+    <material name="default">
+        <color rgba="0.4 0.75 1 0.6"/>
+    </material>
+
+    {%- set PI = 3.1416 -%}
+    {%- set DENSITY = 1000 -%}
+    {%- macro capsule_inertial(radius, length) -%}
+        {%- set mass = DENSITY * PI * radius**2 * length -%}
+        <inertial>
+            <origin xyz="0 0 {{ length / 2 }}" rpy="0 0 0"/>
+            <mass value="{{ mass }}"/>
+            <inertia ixx="{{ mass / 12 * (3 * radius**2 + length**2) }}" ixy="0.0" ixz="0.0" 
+            iyy="{{ mass / 12 * (3 * radius**2 + length**2) }}" iyz="0.0" izz="{{ mass / 2 * radius**2 }}"/>
+        </inertial>
+    {%- endmacro -%}
+    {%- macro capsule(link_type, radius, length) -%}
+        <{{ link_type }}>
+            <origin xyz="0 0 {{ length / 2 }}" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="{{ radius }}" length="{{ length - 2 * radius }}"/>
+            </geometry>
+            {% if link_type == 'visual' %}
+            <material name="default"/>
+            {% endif %}
+        </{{ link_type }}>
+        <{{ link_type }}>
+            <origin xyz="0 0 {{ radius }}" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="{{ radius }}"/>
+            </geometry>
+            {% if link_type == 'visual' %}
+            <material name="default"/>
+            {% endif %}
+        </{{ link_type }}>
+        <{{ link_type }}>
+            <origin xyz="0 0 {{ length - radius }}" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="{{ radius }}"/>
+            </geometry>
+            {% if link_type == 'visual' %}
+            <material name="default"/>
+            {% endif %}
+        </{{ link_type }}>
+    {%- endmacro -%}
+
+    {% macro create_thumb_finger(finger_name, finger_idx, joint_lowers, joint_uppers, finger_xyz, finger_lengths, thumb_rpy, thumb_axes) %}
+    {% set use_joint1 = (joint_lowers[0] != 0 or joint_uppers[0] != 0) %}
+    {% set use_joint2 = (joint_lowers[1] != 0 or joint_uppers[1] != 0) %}
+    {% set use_joint3 = (joint_lowers[2] != 0 or joint_uppers[2] != 0) %}
+    {% set use_joint4 = (joint_lowers[3] != 0 or joint_uppers[3] != 0) %}
+    {% set use_joint5 = (joint_lowers[4] != 0 or joint_uppers[4] != 0) %}
+
+    <joint name="{{ finger_name }}_joint1" type="revolute">
+        <parent link="palm"/>
+        <child link="{{ finger_name }}_base"/>
+        <origin xyz="{{ finger_xyz | join(" ") }}" rpy="{{ thumb_rpy | join(" ") }}"/>
+        <axis xyz={% if use_joint1 %}"{{ thumb_axes[0] | join(" ") }}"{% else %}"1 0 0"{% endif %}/>
+        <limit lower="{{ joint_lowers[0] }}" upper="{{ joint_uppers[0] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_base"></link>
+
+    <joint name="{{ finger_name }}_joint2" type="revolute">
+        <parent link="{{ finger_name }}_base"/>
+        <child link="{{ finger_name }}_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz={% if use_joint2 %}"{{ thumb_axes[1] | join(" ") }}"{% else %}"0 1 0"{% endif %}/>
+        <limit lower="{{ joint_lowers[1] }}" upper="{{ joint_uppers[1] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_proximal">
+        {% if use_joint1 or use_joint2 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[0]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[0]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[0]) }}
+        {% endif %}
+    </link>
+
+    <joint name="{{ finger_name }}_joint3" type="revolute">
+        <parent link="{{ finger_name }}_proximal"/>
+        <child link="{{ finger_name }}_knuckle"/>
+        <origin xyz={% if use_joint1 or use_joint2 %}"0 0 {{ finger_lengths[0] }}"{% else %}"0 0 0"{% endif %} rpy="0 0 0"/> 
+        <axis xyz="1 0 0"/>
+        <limit lower="{{ joint_lowers[2] }}" upper="{{ joint_uppers[2] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_knuckle"></link>
+
+    <joint name="{{ finger_name }}_joint4" type="revolute">
+        <parent link="{{ finger_name }}_knuckle"/>
+        <child link="{{ finger_name }}_middle"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[3] }}" upper="{{ joint_uppers[3] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_middle">
+        {% if use_joint3 or use_joint4 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[1]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[1]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[1]) }}
+        {% endif %}
+    </link>
+
+    <joint name="{{ finger_name }}_joint5" type="revolute">
+        <parent link="{{ finger_name }}_middle"/>
+        <child link="{{ finger_name }}_distal"/>
+        <origin xyz={% if use_joint3 or use_joint4 %}"0 0 {{ finger_lengths[1] }}"{% else %}"0 0 0"{% endif %} rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[4] }}" upper="{{ joint_uppers[4] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_distal">
+        {% if use_joint5 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[2]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[2]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[2]) }}
+        {% endif %}
+    </link>
+    {% endmacro %}
+
+    {% macro create_4dof_finger(finger_name, finger_idx, joint_lowers, joint_uppers, finger_xyz, finger_lengths) %}
+    {% set use_joint1 = (joint_lowers[0] != 0 or joint_uppers[0] != 0) %}
+    {% set use_joint2 = (joint_lowers[1] != 0 or joint_uppers[1] != 0) %}
+    {% set use_joint3 = (joint_lowers[2] != 0 or joint_uppers[2] != 0) %}
+    {% set use_joint4 = (joint_lowers[3] != 0 or joint_uppers[3] != 0) %}
+
+    <joint name="{{ finger_name }}_joint1" type="revolute">
+        <parent link="palm"/>
+        <child link="{{ finger_name }}_knuckle"/>
+        <origin xyz="{{ finger_xyz | join(" ") }}" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="{{ joint_lowers[0] }}" upper="{{ joint_uppers[0] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_knuckle"></link>
+
+    <joint name="{{ finger_name }}_joint2" type="revolute">
+        <parent link="{{ finger_name }}_knuckle"/>
+        <child link="{{ finger_name }}_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[1] }}" upper="{{ joint_uppers[1] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_proximal">
+        {% if use_joint1 or use_joint2 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[0]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[0]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[0]) }}
+        {% endif %}
+    </link>
+
+    <joint name="{{ finger_name }}_joint3" type="revolute">
+        <parent link="{{ finger_name }}_proximal"/>
+        <child link="{{ finger_name }}_middle"/>
+        <origin xyz={% if use_joint1 or use_joint2 %}"0 0 {{ finger_lengths[0] }}"{% else %}"0 0 0"{% endif %} rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[2] }}" upper="{{ joint_uppers[2] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_middle">
+        {% if use_joint3 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[1]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[1]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[1]) }}
+        {% endif %}
+    </link>
+
+    <joint name="{{ finger_name }}_joint4" type="revolute">
+        <parent link="{{ finger_name }}_middle"/>
+        <child link="{{ finger_name }}_distal"/>
+        <origin xyz={% if use_joint3 %}"0 0 {{ finger_lengths[1] }}"{% else %}"0 0 0"{% endif %} rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[3] }}" upper="{{ joint_uppers[3] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_distal">
+        {% if use_joint4 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[2]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[2]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[2]) }}
+        {% endif %}
+    </link>
+    {% endmacro %}
+
+    {% macro create_little_finger(finger_name, finger_idx, joint_lowers, joint_uppers, finger_xyz, finger_lengths, little_extra_origin) %}
+    {% set use_joint0 = (joint_lowers[0] != 0 or joint_uppers[0] != 0) %}
+    {% set use_joint1 = (joint_lowers[1] != 0 or joint_uppers[1] != 0) %}
+    {% set use_joint2 = (joint_lowers[2] != 0 or joint_uppers[2] != 0) %}
+    {% set use_joint3 = (joint_lowers[3] != 0 or joint_uppers[3] != 0) %}
+    {% set use_joint4 = (joint_lowers[4] != 0 or joint_uppers[4] != 0) %}
+
+    <joint name="{{ finger_name }}_joint0" type="revolute">
+        <parent link="palm"/>
+        <child link="{{ finger_name }}_base"/>
+        <origin xyz="{{ little_extra_origin[:3] | join(" ") }}" rpy="{{ little_extra_origin[3:] | join(" ") }}"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[0] }}" upper="{{ joint_uppers[0] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_base"></link>
+
+    <joint name="{{ finger_name }}_joint1" type="revolute">
+        <parent link="{{ finger_name }}_base"/>
+        <child link="{{ finger_name }}_knuckle"/>
+        <origin xyz="{{ get_little_relative_xyz(little_extra_origin, finger_xyz) | join(" ") }}" rpy="{{ -little_extra_origin[3] }} {{ -little_extra_origin[4] }} {{ -little_extra_origin[5] }}"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="{{ joint_lowers[1] }}" upper="{{ joint_uppers[1] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_knuckle"></link>
+
+    <joint name="{{ finger_name }}_joint2" type="revolute">
+        <parent link="{{ finger_name }}_knuckle"/>
+        <child link="{{ finger_name }}_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[2] }}" upper="{{ joint_uppers[2] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_proximal">
+        {% if use_joint1 or use_joint2 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[0]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[0]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[0]) }}
+        {% endif %}
+    </link>
+
+    <joint name="{{ finger_name }}_joint3" type="revolute">
+        <parent link="{{ finger_name }}_proximal"/>
+        <child link="{{ finger_name }}_middle"/>
+        <origin xyz={% if use_joint1 or use_joint2 %}"0 0 {{ finger_lengths[0] }}"{% else %}"0 0 0"{% endif %} rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[3] }}" upper="{{ joint_uppers[3] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_middle">
+        {% if use_joint3 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[1]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[1]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[1]) }}
+        {% endif %}
+    </link>
+
+    <joint name="{{ finger_name }}_joint4" type="revolute">
+        <parent link="{{ finger_name }}_middle"/>
+        <child link="{{ finger_name }}_distal"/>
+        <origin xyz={% if use_joint3 %}"0 0 {{ finger_lengths[1] }}"{% else %}"0 0 0"{% endif %} rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="{{ joint_lowers[4] }}" upper="{{ joint_uppers[4] }}" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_distal">
+        {% if use_joint4 %}
+        {{ capsule_inertial(radius=finger_radius, length=finger_lengths[2]) }}
+        {{ capsule(link_type='visual', radius=finger_radius, length=finger_lengths[2]) }}
+        {{ capsule(link_type='collision', radius=finger_radius, length=finger_lengths[2]) }}
+        {% endif %}
+    </link>
+    {% endmacro %}
+
+    <link name="world"/>
+    <joint name="world_to_palm" type="fixed">
+        <parent link="world"/>
+        <child link="palm"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="palm">
+        {% set mass = DENSITY * PI * palm_radius**2 * (finger_radius * 2) %}
+        <inertial>
+            <origin xyz="0 0 {{ palm_radius }}" rpy="0 0 0"/>
+            <mass value="{{ mass }}"/>
+            <inertia ixx="{{ mass / 2 * palm_radius**2 }}" ixy="0.0" ixz="0.0" iyy="{{ mass / 12 * (3 * palm_radius**2 + finger_radius**2) }}" iyz="0.0" izz="{{ mass / 12 * (3 * palm_radius**2 + finger_radius**2) }}"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 {{ palm_radius }}" rpy="{{ PI / 2 }} 0 {{ PI / 2 }}"/>
+            <geometry>
+                <cylinder radius="{{ palm_radius }}" length="{{ finger_radius * 2 }}"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 {{ palm_radius }}" rpy="{{ PI / 2 }} 0 {{ PI / 2 }}"/>
+            <geometry>
+                <cylinder radius="{{ palm_radius }}" length="{{ finger_radius * 2 }}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    {{ create_thumb_finger('thumb', 0, joint_lowers[0], joint_uppers[0], finger_xyz[0], finger_lengths[0], thumb_rpy, thumb_axes) }}
+    {{ create_4dof_finger('index', 1, joint_lowers[1], joint_uppers[1], finger_xyz[1], finger_lengths[1]) }}
+    {{ create_4dof_finger('middle', 2, joint_lowers[2], joint_uppers[2], finger_xyz[2], finger_lengths[1]) }}
+    {{ create_4dof_finger('ring', 3, joint_lowers[3], joint_uppers[3], finger_xyz[3], finger_lengths[1]) }}
+    {{ create_little_finger('little', 4, joint_lowers[4], joint_uppers[4], finger_xyz[4], finger_lengths[1], little_extra_origin) }}
+</robot>

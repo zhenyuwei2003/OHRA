@@ -1,0 +1,725 @@
+<?xml version="1.0"?>
+<robot name="DexterousHand">
+    <material name="default">
+        <color rgba="0.4 0.75 1 0.6"/>
+    </material>
+
+
+    <link name="world"/>
+    <joint name="world_to_palm" type="fixed">
+        <parent link="world"/>
+        <child link="palm"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="palm">
+        <inertial>
+            <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <mass value="0.1539384"/>
+            <inertia ixx="0.00019242300000000005" ixy="0.0" ixz="0.0" iyy="9.744352032800002e-05" iyz="0.0" izz="9.744352032800002e-05"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.05" rpy="1.5708 0 1.5708"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.0196"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.05" rpy="1.5708 0 1.5708"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.0196"/>
+            </geometry>
+        </collision>
+    </link>
+
+    
+    <joint name="thumb_joint1" type="revolute">
+        <parent link="palm"/>
+        <child link="thumb_base"/>
+        <origin xyz="0.0183 -0.0331 0.0385" rpy="0.0041 1.5671 0.0041"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+        <limit lower="-1.05" upper="0.349" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="thumb_base"></link>
+
+    <joint name="thumb_joint2" type="revolute">
+        <parent link="thumb_base"/>
+        <child link="thumb_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0.0 -1.0 0.0"/>
+        <limit lower="0.0" upper="1.05" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="thumb_proximal">
+        <inertial>
+            <origin xyz="0 0 0.02695" rpy="0 0 0"/>
+            <mass value="0.0162626683296"/>
+            <inertia ixx="4.327672221413465e-06" ixy="0.0" ixz="0.0" 
+            iyy="4.327672221413465e-06" iyz="0.0" izz="7.80933333187392e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.02695" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.034300000000000004"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0441" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.02695" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.034300000000000004"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0441" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="thumb_joint3" type="revolute">
+        <parent link="thumb_proximal"/>
+        <child link="thumb_knuckle"/>
+        <origin xyz="0 0 0.0539" rpy="0 0 0"/> 
+        <axis xyz="1 0 0"/>
+        <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="thumb_knuckle"></link>
+
+    <joint name="thumb_joint4" type="revolute">
+        <parent link="thumb_knuckle"/>
+        <child link="thumb_middle"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="thumb_middle">
+    </link>
+
+    <joint name="thumb_joint5" type="revolute">
+        <parent link="thumb_middle"/>
+        <child link="thumb_distal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="thumb_distal">
+        <inertial>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <mass value="0.013577366879999999"/>
+            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
+            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    
+    <joint name="index_joint1" type="revolute">
+        <parent link="palm"/>
+        <child link="index_knuckle"/>
+        <origin xyz="0.0026 -0.0279 0.101" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.262" upper="0.262" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="index_knuckle"></link>
+
+    <joint name="index_joint2" type="revolute">
+        <parent link="index_knuckle"/>
+        <child link="index_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.349" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="index_proximal">
+        <inertial>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <mass value="0.014361836966400001"/>
+            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
+            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="index_joint3" type="revolute">
+        <parent link="index_proximal"/>
+        <child link="index_middle"/>
+        <origin xyz="0 0 0.0476" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="index_middle">
+    </link>
+
+    <joint name="index_joint4" type="revolute">
+        <parent link="index_middle"/>
+        <child link="index_distal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="index_distal">
+        <inertial>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <mass value="0.013577366879999999"/>
+            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
+            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    
+    <joint name="middle_joint1" type="revolute">
+        <parent link="palm"/>
+        <child link="middle_knuckle"/>
+        <origin xyz="0.0026 -0.0057 0.105" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.401" upper="0.314" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="middle_knuckle"></link>
+
+    <joint name="middle_joint2" type="revolute">
+        <parent link="middle_knuckle"/>
+        <child link="middle_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.349" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="middle_proximal">
+        <inertial>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <mass value="0.014361836966400001"/>
+            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
+            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="middle_joint3" type="revolute">
+        <parent link="middle_proximal"/>
+        <child link="middle_middle"/>
+        <origin xyz="0 0 0.0476" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="middle_middle">
+    </link>
+
+    <joint name="middle_joint4" type="revolute">
+        <parent link="middle_middle"/>
+        <child link="middle_distal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="middle_distal">
+        <inertial>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <mass value="0.013577366879999999"/>
+            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
+            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    
+    <joint name="ring_joint1" type="revolute">
+        <parent link="palm"/>
+        <child link="ring_knuckle"/>
+        <origin xyz="0.0026 0.0163 0.098" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.349" upper="0.175" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="ring_knuckle"></link>
+
+    <joint name="ring_joint2" type="revolute">
+        <parent link="ring_knuckle"/>
+        <child link="ring_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.349" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="ring_proximal">
+        <inertial>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <mass value="0.014361836966400001"/>
+            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
+            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="ring_joint3" type="revolute">
+        <parent link="ring_proximal"/>
+        <child link="ring_middle"/>
+        <origin xyz="0 0 0.0476" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="ring_middle">
+    </link>
+
+    <joint name="ring_joint4" type="revolute">
+        <parent link="ring_middle"/>
+        <child link="ring_distal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="ring_distal">
+        <inertial>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <mass value="0.013577366879999999"/>
+            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
+            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    
+    <joint name="little_joint0" type="revolute">
+        <parent link="palm"/>
+        <child link="little_base"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="little_base"></link>
+
+    <joint name="little_joint1" type="revolute">
+        <parent link="little_base"/>
+        <child link="little_knuckle"/>
+        <origin xyz="0.0026 0.0383 0.092" rpy="-0.0 -0.0 -0.0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.349" upper="0.105" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="little_knuckle"></link>
+
+    <joint name="little_joint2" type="revolute">
+        <parent link="little_knuckle"/>
+        <child link="little_proximal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.349" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="little_proximal">
+        <inertial>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <mass value="0.014361836966400001"/>
+            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
+            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0238" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.028000000000000004"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="little_joint3" type="revolute">
+        <parent link="little_proximal"/>
+        <child link="little_middle"/>
+        <origin xyz="0 0 0.0476" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="little_middle">
+    </link>
+
+    <joint name="little_joint4" type="revolute">
+        <parent link="little_middle"/>
+        <child link="little_distal"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
+        <axis xyz="0 1 0"/>
+        <limit lower="0.0" upper="1.57" effort="1.0" velocity="1.0"/>
+    </joint>
+
+    <link name="little_distal">
+        <inertial>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <mass value="0.013577366879999999"/>
+            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
+            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <visual>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+            <material name="default"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.0098" length="0.0254"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.0098"/>
+            </geometry>
+        </collision>
+    </link>
+
+</robot>
