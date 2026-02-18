@@ -3,6 +3,7 @@
 Official Code Repository for **One Hand to Rule Them All: Canonical Representations for Unified Dexterous Manipulation**.
 
 [Zhenyu Wei](https://zhenyuwei2003.github.io/), Yunchao Yao, [Mingyu Ding](https://dingmyu.github.io/)
+
 University of North Carolina at Chapel Hill
 
 <p align="center">
