@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/gaia_hand/right/right_gaiahand.urdf",
+        "canonical": "assets/canonical/urdf/gaia_hand_right.urdf"
+    },
+    "dof": 15,
+    "palm_origin": [0.0, 0.0, 0.05, 0.0, 0.0, 0.0],
+    "joint_mapping": [
+        ["right_thumb_joint_1", "right_thumb_joint_2", null, null, "right_thumb_joint_3"],
+        ["right_index_joint_1", "right_index_joint_2", null, "right_index_joint_3"],
+        ["right_middle_joint_1", "right_middle_joint_2", null, "right_middle_joint_3"],
+        ["right_ring_joint_1", "right_ring_joint_2", null, "right_ring_joint_3"],
+        [null, "right_little_joint_1", "right_little_joint_2", null, "right_little_joint_3"]
+    ],
+    "canonical_order": [13, 14, 0, 0, -15, 10, 11, 0, 12, 7, 8, 0, 9, 4, 5, 0, 6, 0, 1, 2, 0, 3]
+}

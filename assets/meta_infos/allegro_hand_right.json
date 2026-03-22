@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/allegro_hand/allegro_hand_right.urdf",
+        "canonical": "assets/canonical/urdf/allegro_hand_right.urdf"
+    },
+    "dof": 16,
+    "palm_origin": [-0.05, 0.0, -0.095, 0.0, 0.0, 0.0],
+    "joint_mapping": [
+        ["joint_12.0", "joint_13.0", null, "joint_14.0", "joint_15.0"],
+        [null, "joint_1.0", "joint_2.0", "joint_3.0"],
+        [null, "joint_5.0", "joint_6.0", "joint_7.0"],
+        [null, null, null, null],
+        [null, null, "joint_9.0", "joint_10.0", "joint_11.0"]
+    ],
+    "canonical_order": [13, 14, 0, 15, 16, 0, 2, 3, 4, 0, 6, 7, 8, 0, 0, 0, 0, 0, 0, 10, 11, 12]
+}

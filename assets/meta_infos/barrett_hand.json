@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/barrett_hand/bhand_model.urdf",
+        "canonical": "assets/canonical/urdf/barrett_hand.urdf"
+    },
+    "dof": 8,
+    "palm_origin": [0.0, -0.05, 0.0754, 0.0, -1.5708, -1.5708],
+    "joint_mapping": [
+        [null, null, null, "finger_3_med_joint", "finger_3_dist_joint"],
+        ["finger_1_prox_joint", null, "finger_1_med_joint", "finger_1_dist_joint"],
+        ["finger_2_prox_joint", null, "finger_2_med_joint", "finger_2_dist_joint"],
+        [null, null, null, null],
+        [null, null, null, null, null]
+    ],
+    "canonical_order": [0, 0, 0, 7, 8, 1, 0, -2, -3, 4, 0, -5, -6, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+}

@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/dex3_1/dex3_1_r.urdf",
+        "canonical": "assets/canonical/urdf/dex3_right.urdf"
+    },
+    "dof": 7,
+    "palm_origin": [0.0, 0.0, 0.0, 1.5708, 0.0, 1.5708],
+    "joint_mapping": [
+        ["right_hand_thumb_0_joint", "right_hand_thumb_1_joint", null, null, "right_hand_thumb_2_joint"],
+        [null, "right_hand_index_0_joint", null, "right_hand_index_1_joint"],
+        [null, "right_hand_middle_0_joint", null, "right_hand_middle_1_joint"],
+        [null, null, null, null],
+        [null, null, null, null, null]
+    ],
+    "canonical_order": [1, 2, 0, 0, 3, 0, 6, 0, 7, 0, 4, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+}

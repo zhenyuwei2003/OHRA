@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/shadow_hand/shadow_hand_right.urdf",
+        "canonical": "assets/canonical/urdf/shadow_hand_right.urdf"
+    },
+    "dof": 24,
+    "palm_origin": [0.01, 0.0, 0.247, 0.0, 0.0, 0.0],
+    "joint_mapping": [
+        ["THJ5", "THJ4", "THJ3", "THJ2", "THJ1"],
+        ["FFJ4", "FFJ3", "FFJ2", "FFJ1"],
+        ["MFJ4", "MFJ3", "MFJ2", "MFJ1"],
+        ["RFJ4", "RFJ3", "RFJ2", "RFJ1"],
+        ["LFJ5", "LFJ4", "LFJ3", "LFJ2", "LFJ1"]
+    ],
+    "canonical_order": [20, 21, -22, 23, 24, 3, 4, 5, 6, 7, 8, 9, 10, -11, 12, 13, 14, 15, -16, 17, 18, 19]
+}

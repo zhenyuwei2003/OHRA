@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/sharpa_wave/left_sharpa_wave/left_sharpa_wave.urdf",
+        "canonical": "assets/canonical/urdf/sharpa_wave_left.urdf"
+    },
+    "dof": 22,
+    "palm_origin": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    "joint_mapping": [
+        ["left_thumb_CMC_FE", "left_thumb_CMC_AA", "left_thumb_MCP_AA", "left_thumb_MCP_FE", "left_thumb_IP"],
+        ["left_index_MCP_AA", "left_index_MCP_FE", "left_index_PIP", "left_index_DIP"],
+        ["left_middle_MCP_AA", "left_middle_MCP_FE", "left_middle_PIP", "left_middle_DIP"],
+        ["left_ring_MCP_AA", "left_ring_MCP_FE", "left_ring_PIP", "left_ring_DIP"],
+        ["left_pinky_CMC", "left_pinky_MCP_AA", "left_pinky_MCP_FE", "left_pinky_PIP", "left_pinky_DIP"]
+    ],
+    "canonical_order": [1, 2, -4, 3, 5, -7, 6, 8, 9, -11, 10, 12, 13, -15, 14, 16, 17, 18, -20, 19, 21, 22]
+}

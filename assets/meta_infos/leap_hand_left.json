@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/leap_hand/leap_hand_left.urdf",
+        "canonical": "assets/canonical/urdf/leap_hand_left.urdf"
+    },
+    "dof": 16,
+    "palm_origin": [0.0072, 0.0, 0.0, 0.0, 0.0, 0.0],
+    "joint_mapping": [
+        ["12", "13", null, "14", "15"],
+        ["0", "1", "2", "3"],
+        ["4", "5", "6", "7"],
+        [null, null, null, null],
+        [null, "8", "9", "10", "11"]
+    ],
+    "canonical_order": [13, 14, 0, -15, -16, 2, 1, 3, 4, 6, 5, 7, 8, 0, 0, 0, 0, 0, 10, 9, 11, 12]
+}
