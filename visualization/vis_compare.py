@@ -119,7 +119,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--robot_name", type=str, required=True, help="Name of the robot")
-    parser.add_argument("--use_collision", type=bool, default=False, help="Whether to visualize the collision meshes of the hand model")
+    parser.add_argument("--use_collision", action="store_true", help="Whether to visualize the collision meshes of the hand model")
     parser.add_argument("--extended", action="store_true", help="Whether to visualize the extended canonical hand model")
     args = parser.parse_args()
 

@@ -29,9 +29,10 @@ def main(args):
     env.globals['get_little_relative_xyz'] = get_little_relative_xyz
 
     output_path = os.path.join(dir_path, f"urdf/{args.robot_name}.urdf")
-    print("Output URDF to:", output_path)
-    with open(output_path, "w") as f:
-        f.write(urdf_template.render(hand_params))
+    print("Canonical URDF will be saved to:", output_path)
+    if input("Write to file? (y/n):").strip().lower() == "y":
+        with open(output_path, "w") as f:
+            f.write(urdf_template.render(hand_params))
 
 
 if __name__ == "__main__":

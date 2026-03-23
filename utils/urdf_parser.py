@@ -253,9 +253,10 @@ def main(robot_name):
         json_str = re.sub(r'\[\s*([^\[\]\{\}]*?)\s*\]', replacer, json_str)
         return json_str
 
-    if input("Write to json file? (y/n):").strip().lower() == "y":
-        print("Params saved to:", f"{ROOT_DIR}/assets/canonical/json/{robot_name}.json")
-        with open(f"{ROOT_DIR}/assets/canonical/json/{robot_name}.json", 'w', encoding='utf-8') as f:
+    output_path = os.path.join(ROOT_DIR, f"assets/canonical/json/{robot_name}.json")
+    print("Params will be saved to:", output_path)
+    if input("Write to file? (y/n):").strip().lower() == "y":
+        with open(output_path, 'w', encoding='utf-8') as f:
             f.write(format_json_string(json.dumps(json_save_infos, indent=4, ensure_ascii=False)))
 
 

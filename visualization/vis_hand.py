@@ -49,12 +49,12 @@ def main(args):
     device = torch.device('cpu')
 
     meta_info = json.load(open(os.path.join(ROOT_DIR, f"assets/meta_infos/{args.robot_name}.json")))
-    urdf_file = os.path.join(ROOT_DIR, meta_info['urdf_path']['canonical'] if args.is_canonical else meta_info['urdf_path']['original'])
+    urdf_file = os.path.join(ROOT_DIR, meta_info['urdf_path']['original'] if args.use_original else meta_info['urdf_path']['canonical'])
     hand = HandModel(
         robot_name=args.robot_name,
         urdf_type="path",
         urdf_file=urdf_file,
-        is_canonical=args.is_canonical,
+        is_canonical=not args.use_original,
         use_collision=args.use_collision,
         device=device
     )
@@ -81,8 +81,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--robot_name", type=str, required=True, help="Name of the robot")
-    parser.add_argument("--is_canonical", type=bool, default=True, help="Whether to use the canonical version of the hand model")
-    parser.add_argument("--use_collision", type=bool, default=False, help="Whether to visualize the collision meshes of the hand model")
+    parser.add_argument("--use_original", action="store_true", help="Whether to use the original version of the hand model")
+    parser.add_argument("--use_collision", action="store_true", help="Whether to visualize the collision meshes of the hand model")
     args = parser.parse_args()
 
     main(args)
