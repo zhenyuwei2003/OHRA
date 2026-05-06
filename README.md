@@ -51,7 +51,7 @@ Download the [dataset](https://drive.google.com/file/d/1MI2mJLwGbg9ESIZwDBJvbGO3
 5. Run `visualization/vis_compare.py` to visualize the difference between the original hand model and the generated canonical hand model. If there exists discrepancies, go back to Step 3, manually adjust the parameters, and repeat the process until the canonical model provides a satisfactory approximation.
 
 ## Canonical Hand Designs:
-<img src="joint_order.png" alt="Canonical Hand Joint Order" align="right" width="40%">
+<img src="joint_order.png" alt="Canonical Hand Joint Order" align="right" width="38%">
 
 The canonical hand template is designed based on the following rules:
 
