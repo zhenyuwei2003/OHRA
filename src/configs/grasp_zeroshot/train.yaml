@@ -1,0 +1,34 @@
+defaults:
+    - log.yaml
+    - model.yaml
+    - dataset.yaml
+    - _self_
+
+name: 'grasp_zeroshot_leap_geq8_max200'
+
+seed: 42
+gpu:
+    - 0
+#    - 1
+#    - 2
+#    - 3
+#    - 4
+#    - 5
+#    - 6
+#    - 7
+
+load_from_checkpoint: False
+log_every_n_steps: 10
+
+training:
+    max_epochs: 100
+
+    save_dir: '${output_dir}/state_dict'
+    save_every_n_epoch: 5
+
+    lr: 1e-3
+    lr_min: 1e-7
+
+    weight:
+        loss_diffusion: 1.0
+        loss_joint: 1.0

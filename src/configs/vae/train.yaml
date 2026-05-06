@@ -1,0 +1,42 @@
+defaults:
+    - log.yaml
+    - _self_
+
+name: 'vae_4head_latent16'
+
+seed: 42
+gpu:
+#    - 0
+    - 1
+#    - 2
+#    - 3
+#    - 4
+#    - 5
+#    - 6
+#    - 7
+
+load_from_checkpoint: False
+log_every_n_steps: 1
+
+training:
+    max_epochs: 1000
+
+    save_dir: '${output_dir}/state_dict'
+    save_every_n_epoch: 100
+
+model:
+    lr: 1e-4
+    betas: [0.95, 0.999]
+    weight_decay: 1e-6
+
+    kl_beta: 0.01
+
+    input_dim: 66
+    hidden_dims: [512, 256, 128]
+    latent_dim: 16
+
+dataset:
+    batch_size: 1024
+    num_workers: 0
+    drop_last: True
+    num_samples: 65536

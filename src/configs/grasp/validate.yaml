@@ -1,0 +1,25 @@
+total_batch_size: 100  # validation grasps of the specific (robot, object) combination
+split_batch_size: 100  # limited by GPU memory
+use_gui: False
+
+ckpt_name: 'grasp_canonical'
+gpu:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+validate_epochs:
+    - 99
+    - 199
+    - 299
+    - 399
+    - 499
+    - 599
+    - 699
+    - 799
+    - 899
+    - 999

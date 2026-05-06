@@ -1,0 +1,30 @@
+total_batch_size: 100  # validation grasps of the specific (robot, object) combination
+split_batch_size: 100  # limited by GPU memory
+use_gui: False
+
+ckpt_name: 'grasp_zeroshot_leap_geq8_max200'
+robot_names:
+    - 'leap_hand_3033'
+    - 'leap_hand_3303'
+    - 'leap_hand_3330'
+    - 'leap_hand_3333'
+gpu:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+validate_epochs:
+    - 9
+    - 19
+    - 29
+    - 39
+    - 49
+    - 59
+    - 69
+    - 79
+    - 89
+    - 99

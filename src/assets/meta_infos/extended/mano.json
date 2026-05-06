@@ -1,0 +1,16 @@
+{
+    "urdf_path": {
+        "original": "assets/robot_urdf/mano/mano.urdf",
+        "canonical_extended": "assets/canonical_extended/urdf/mano.urdf"
+    },
+    "dof": 20,
+    "palm_origin": [0.01, 0.0, 0.0, 1.5708, 0.0, -1.5708],
+    "joint_mapping": [
+        ["j_thumb1y", "j_thumb1z", null, "j_thumb2", "j_thumb3"],
+        ["j_index1y", "j_index1x", "j_index2", "j_index3"],
+        ["j_middle1y", "j_middle1x", "j_middle2", "j_middle3"],
+        ["j_ring1y", "j_ring1x", "j_ring2", "j_ring3"],
+        [null, "j_pinky1y", "j_pinky1x", "j_pinky2", "j_pinky3"]
+    ],
+    "canonical_order": [17, 18, 0, 19, 20, 1, 2, 3, 4, 5, 6, 7, 8, 13, 14, 15, 16, 0, 9, 10, 11, 12]
+}

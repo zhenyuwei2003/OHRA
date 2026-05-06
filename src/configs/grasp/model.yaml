@@ -1,0 +1,27 @@
+model:
+    encoder:
+        emb_dim: 512
+        hand_latent_dim: 16
+
+    params_encoder:
+        ckpt_name: "vae_4head_latent16"
+        ckpt_epoch: 999
+
+        input_dim: 66
+        hidden_dims: [512, 256, 128]
+        latent_dim: 16
+
+    diffusion:
+        pose_dim: 9
+        q_dim: 31  # pose_dim + 22
+        cond_dim: 534  # emb_dim + hand_latent_dim + 6
+        hidden_layers_dim: [512, 256]  # [2048, 1024, 512, 256, 128]
+        diffusion_step_embed_dim: 64
+
+        scheduler:
+            num_train_timesteps: 1000
+            clip_sample: True
+            prediction_type: 'sample'  # 'epsilon', 'v_prediction', 'sample'
+
+    joint_network:
+        hidden_features: 64

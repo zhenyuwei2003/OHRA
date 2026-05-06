@@ -1,0 +1,5 @@
+dataset:
+    dataset_name: "leap_dataset_geq8_max200"
+    robot_names: null
+    batch_size: 128
+    num_workers: 8

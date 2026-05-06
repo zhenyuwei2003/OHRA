@@ -1,0 +1,11 @@
+dataset:
+    robot_names:
+        - 'allegro_hand_left'
+        - 'barrett_hand'
+        - 'shadow_hand_right'
+
+    debug_object_names: null  # use part of the dataset, for debug only
+
+    batch_size: 128
+    num_workers: 8
+    object_pc_type: 'random'  # 'fixed', 'random'
