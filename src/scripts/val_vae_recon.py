@@ -1,4 +1,6 @@
+import os
 import sys
+import json
 import torch
 import argparse
 from pathlib import Path
@@ -8,7 +10,7 @@ ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
 from model.vae import TrainingModule
-from src.utils.urdf_render import urdf_render
+from utils.urdf_render import urdf_render
 from data_utils.sample_utils import *
 
 

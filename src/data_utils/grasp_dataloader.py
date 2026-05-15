@@ -1,4 +1,6 @@
+import os
 import sys
+import json
 import math
 import torch
 import random
@@ -9,7 +11,7 @@ from torch.utils.data import Dataset, DataLoader
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.hand_model import HandModel
+from utils.hand_model import HandModel
 from data_utils.sample_utils import *
 
 
@@ -54,8 +56,7 @@ class CMapDataset(Dataset):
             print("[WARNING] Using debug objects!")
             self.object_names = debug_object_names
 
-        # dataset = torch.load(os.path.join(ROOT_DIR, f"data/CMapDataset/canonical_filtered.pt"), weights_only=True)
-        dataset = torch.load(os.path.join(ROOT_DIR, f"data/CMapDataset_filtered/cmap_dataset_canonical_filtered.pt"), weights_only=True)
+        dataset = torch.load(os.path.join(ROOT_DIR, f"data/CMapDataset/canonical_filtered.pt"), weights_only=True)
         self.metadata = [m for m in dataset["metadata"] if m[1] in self.object_names and m[2] in self.robot_names]
 
         self.metadata_subset = {}

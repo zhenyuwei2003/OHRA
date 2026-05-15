@@ -6,8 +6,8 @@ name: 'vae_4head_latent16'
 
 seed: 42
 gpu:
-#    - 0
-    - 1
+    - 0
+#    - 1
 #    - 2
 #    - 3
 #    - 4

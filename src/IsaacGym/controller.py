@@ -6,7 +6,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.rotation import rot6d_to_matrix
+from utils.rotation import rot6d_to_matrix
 
 
 def controller(hand, q, outer_coeff=0.1, inner_coeff=0.1):

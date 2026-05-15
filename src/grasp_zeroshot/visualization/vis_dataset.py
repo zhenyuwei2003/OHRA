@@ -11,7 +11,7 @@ ROOT_DIR = str(Path(__file__).resolve().parents[2])
 sys.path.append(ROOT_DIR)
 
 from grasp_zeroshot.utils.hand_model import HandModel
-from src.utils.rotation import rot6d_to_matrix
+from utils.rotation import rot6d_to_matrix
 
 
 def main():

@@ -9,7 +9,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[2])
 sys.path.append(ROOT_DIR)
 
-from src.utils.hand_model import HandModel as HandModel_original
+from utils.hand_model import HandModel as HandModel_original
 from grasp_zeroshot.utils.hand_model import HandModel
 
 

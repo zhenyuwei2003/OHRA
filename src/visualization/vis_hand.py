@@ -10,7 +10,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.hand_model import HandModel
+from utils.hand_model import HandModel
 
 
 def vis_hand(viser_server, hand_model, q, color=(102, 192, 255), use_trimesh_vis=False, print_frame_info=False):

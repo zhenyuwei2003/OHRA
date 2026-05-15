@@ -15,7 +15,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.rotation import matrix_to_rot6d
+from utils.rotation import matrix_to_rot6d
 from model.grasp.pl_module import TrainingModule
 from data_utils.grasp_dataloader import create_dataloader
 
@@ -177,7 +177,7 @@ def worker(epoch_idx, validate_epoch, gpu, train_cfg, val_cfg):
     return epoch_idx, gpu, print_list
 
 
-@hydra.main(version_base="1.2", config_path="../../configs/grasp", config_name="validate")
+@hydra.main(version_base="1.2", config_path="../configs/grasp", config_name="val")
 def main(val_cfg):
     train_cfg = OmegaConf.load(f"{ROOT_DIR}/output/{val_cfg.ckpt_name}/log/hydra/.hydra/config.yaml")
 

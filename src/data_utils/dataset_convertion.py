@@ -13,8 +13,8 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.hand_model import HandModel
-from src.utils.rotation import q_euler_to_q_6d, q_6d_to_q_euler, rot6d_to_matrix
+from utils.hand_model import HandModel
+from utils.rotation import q_euler_to_q_6d, q_6d_to_q_euler, rot6d_to_matrix
 
 
 def create_hand_model(robot_name, is_canonical, is_extended, use_collision=False, device=torch.device('cpu')):

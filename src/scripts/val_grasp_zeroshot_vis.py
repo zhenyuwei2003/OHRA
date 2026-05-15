@@ -12,7 +12,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.rotation import matrix_to_rot6d
+from utils.rotation import matrix_to_rot6d
 from grasp_zeroshot.utils.hand_model import HandModel
 from model.grasp_zeroshot.pl_module import TrainingModule
 from data_utils.grasp_zeroshot_dataloader import params_dict_to_data

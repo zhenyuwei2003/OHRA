@@ -12,8 +12,8 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.hand_model import HandModel
-from src.utils.rotation import matrix_to_rot6d
+from utils.hand_model import HandModel
+from utils.rotation import matrix_to_rot6d
 from model.grasp.pl_module import TrainingModule
 from data_utils.sample_utils import params_dict_to_list, params_list_to_data
 

@@ -2,7 +2,6 @@ import os
 import sys
 import hydra
 import torch
-import shutil
 import warnings
 import pytorch_lightning as pl
 from pathlib import Path
@@ -17,7 +16,7 @@ from model.vae import TrainingModule
 from data_utils.sample_dataloader import create_dataloader
 
 
-@hydra.main(version_base="1.2", config_path="../../configs/vae", config_name="train")
+@hydra.main(version_base="1.2", config_path="../configs/vae", config_name="train")
 def main(cfg):
     print("******************************** [Config] ********************************")
     print(OmegaConf.to_yaml(cfg))

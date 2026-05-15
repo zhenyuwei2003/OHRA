@@ -14,7 +14,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.rotation import matrix_to_rot6d
+from utils.rotation import matrix_to_rot6d
 from model.grasp.pl_module import TrainingModule
 from data_utils.grasp_dataloader import create_dataloader
 
@@ -66,7 +66,7 @@ def validate_isaac(robot_name, object_name, q_batch, gpu: int = 0, use_gui: bool
     return success, q_isaac
 
 
-@hydra.main(version_base="1.2", config_path="../../configs/grasp", config_name="validate")
+@hydra.main(version_base="1.2", config_path="../configs/grasp", config_name="val")
 def main(val_cfg):
     train_cfg = OmegaConf.load(f"{ROOT_DIR}/output/{val_cfg.ckpt_name}/log/hydra/.hydra/config.yaml")
 

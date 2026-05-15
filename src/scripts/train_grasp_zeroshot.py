@@ -16,7 +16,7 @@ from model.grasp_zeroshot.pl_module import TrainingModule
 from data_utils.grasp_zeroshot_dataloader import create_dataloader
 
 
-@hydra.main(version_base="1.2", config_path="../../configs/grasp_zeroshot", config_name="train")
+@hydra.main(version_base="1.2", config_path="../configs/grasp_zeroshot", config_name="train")
 def main(cfg):
     print("******************************** [Config] ********************************")
     print(OmegaConf.to_yaml(cfg))

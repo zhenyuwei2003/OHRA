@@ -12,7 +12,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[1])
 sys.path.append(ROOT_DIR)
 
-from src.utils.hand_model import HandModel
+from utils.hand_model import HandModel
 
 
 FLOAT_DIGITS = 4

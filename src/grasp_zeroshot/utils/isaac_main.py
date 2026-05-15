@@ -11,7 +11,7 @@ sys.path.append(ROOT_DIR)
 
 from IsaacGym.isaac_validator import IsaacValidator
 from grasp_zeroshot.utils.hand_model import HandModel
-from src.utils.rotation import rot6d_to_matrix
+from utils.rotation import rot6d_to_matrix
 
 import torch  # IsaacGym must be imported before PyTorch
 

@@ -15,7 +15,7 @@ University of North Carolina at Chapel Hill
       <img src='https://img.shields.io/badge/Project-Page-66C0FF?style=plastic&logo=Google%20chrome&logoColor=66C0FF' alt='Project Page'>
     </a>
 </p>
-<img src="OHRA_teaser.png" alt="Teaser" align="center" width="95%">
+<img src="OHRA_teaser.png" alt="Teaser" align="center" width="100%">
 
 We introduce a canonical hand representation that unifies diverse dexterous hands into a shared parameter space and canonical URDF format, serving as a condition for cross-embodiment policy learning. It enables dexterous grasping and zero-shot generalization to novel hand morphologies, highlighting its potential for a wide range of dexterous manipulation tasks.
 
@@ -28,7 +28,7 @@ We introduce a canonical hand representation that unifies diverse dexterous hand
 ```bash
 conda create -n ohra python=3.8 -y
 conda activate ohra
-pip install diffusers fpsample hydra-core jinja2 nflows omegaconf pytorch_kinematics pytorch_lightning scipy termcolor torch trimesh viser
+pip install diffusers fpsample hydra-core jinja2 nflows omegaconf pytorch_kinematics pytorch_lightning scipy termcolor torch trimesh viser wandb
 ```
 
 ### Install Isaac Gym Environment

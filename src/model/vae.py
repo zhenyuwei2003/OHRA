@@ -1,11 +1,8 @@
-import os
 import sys
 import torch
-import numpy as np
 import torch.nn as nn
 import pytorch_lightning as pl
 from pathlib import Path
-from termcolor import colored
 from torch.nn import functional as F
 
 ROOT_DIR = str(Path(__file__).resolve().parents[1])

@@ -12,7 +12,7 @@ ROOT_DIR = str(Path(__file__).resolve().parents[2])
 sys.path.append(ROOT_DIR)
 
 from IsaacGym.controller import controller
-from src.utils.rotation import matrix_to_rot6d
+from utils.rotation import matrix_to_rot6d
 
 
 class IsaacValidator:

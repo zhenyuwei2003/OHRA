@@ -16,7 +16,7 @@ from model.grasp.pl_module import TrainingModule
 from data_utils.grasp_dataloader import create_dataloader
 
 
-@hydra.main(version_base="1.2", config_path="../../configs/grasp", config_name="train")
+@hydra.main(version_base="1.2", config_path="../configs/grasp", config_name="train")
 def main(cfg):
     print("******************************** [Config] ********************************")
     print(OmegaConf.to_yaml(cfg))
@@ -48,7 +48,7 @@ def main(cfg):
         max_epochs=cfg.training.max_epochs,
     )
 
-    dataloader = create_dataloader(cfg.dataet, is_train=True)
+    dataloader = create_dataloader(cfg.dataset, is_train=True)
 
     os.makedirs(cfg.training.save_dir, exist_ok=True)
     module = TrainingModule(cfg=cfg)

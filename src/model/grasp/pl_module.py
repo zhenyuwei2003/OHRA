@@ -10,7 +10,7 @@ from scipy.spatial.transform import Rotation as R
 ROOT_DIR = str(Path(__file__).resolve().parents[2])
 sys.path.append(ROOT_DIR)
 
-from src.utils.rotation import rot6d_to_matrix
+from utils.rotation import rot6d_to_matrix
 from model.grasp.diffusion_model import DiffusionModel
 from model.grasp.encoder import Encoder
 from model.vae import VAE

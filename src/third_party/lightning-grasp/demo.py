@@ -33,8 +33,8 @@ from pathlib import Path
 ROOT_DIR = str(Path(__file__).resolve().parents[2])
 sys.path.append(ROOT_DIR)
 
-from src.utils.hand_model import HandModel
-from src.utils.rotation import matrix_to_rot6d
+from utils.hand_model import HandModel
+from utils.rotation import matrix_to_rot6d
 
 
 def get_args():
