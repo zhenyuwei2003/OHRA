@@ -119,6 +119,14 @@
         {{ capsule(link_type='collision', radius=finger_radii[finger_idx], length=finger_lengths[2]) }}
         {% endif %}
     </link>
+
+    <joint name="{{ finger_name }}_joint_tip" type="fixed">
+        <parent link="{{ finger_name }}_distal"/>
+        <child link="{{ finger_name }}_tip"/>
+        <origin xyz="0 0 {{ finger_lengths[2] }}" rpy="0 0 0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_tip"></link>
     {% endmacro %}
 
     {% macro create_4dof_finger(finger_name, finger_idx, joint_lowers, joint_uppers, joint_origins, joint_axes, finger_lengths) %}
@@ -184,6 +192,14 @@
         {{ capsule(link_type='collision', radius=finger_radii[finger_idx], length=finger_lengths[2]) }}
         {% endif %}
     </link>
+
+    <joint name="{{ finger_name }}_joint_tip" type="fixed">
+        <parent link="{{ finger_name }}_distal"/>
+        <child link="{{ finger_name }}_tip"/>
+        <origin xyz="0 0 {{ finger_lengths[2] }}" rpy="0 0 0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_tip"></link>
     {% endmacro %}
 
     {% macro create_little_finger(finger_name, finger_idx, joint_lowers, joint_uppers, joint_origins, joint_axes, finger_lengths) %}
@@ -260,6 +276,14 @@
         {{ capsule(link_type='collision', radius=finger_radii[finger_idx], length=finger_lengths[2]) }}
         {% endif %}
     </link>
+
+    <joint name="{{ finger_name }}_joint_tip" type="fixed">
+        <parent link="{{ finger_name }}_distal"/>
+        <child link="{{ finger_name }}_tip"/>
+        <origin xyz="0 0 {{ finger_lengths[2] }}" rpy="0 0 0"/>
+    </joint>
+
+    <link name="{{ finger_name }}_tip"></link>
     {% endmacro %}
 
     <link name="world"/>

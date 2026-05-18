@@ -176,6 +176,14 @@
         </collision>
     </link>
 
+    <joint name="thumb_joint_tip" type="fixed">
+        <parent link="thumb_distal"/>
+        <child link="thumb_tip"/>
+        <origin xyz="0 0 0.064" rpy="0 0 0"/>
+    </joint>
+
+    <link name="thumb_tip"></link>
+
     
     <joint name="index_joint1" type="revolute">
         <parent link="palm"/>
@@ -354,6 +362,14 @@
             </geometry>
         </collision>
     </link>
+
+    <joint name="index_joint_tip" type="fixed">
+        <parent link="index_distal"/>
+        <child link="index_tip"/>
+        <origin xyz="0 0 0.064" rpy="0 0 0"/>
+    </joint>
+
+    <link name="index_tip"></link>
 
     
     <joint name="middle_joint1" type="revolute">
@@ -534,6 +550,14 @@
         </collision>
     </link>
 
+    <joint name="middle_joint_tip" type="fixed">
+        <parent link="middle_distal"/>
+        <child link="middle_tip"/>
+        <origin xyz="0 0 0.064" rpy="0 0 0"/>
+    </joint>
+
+    <link name="middle_tip"></link>
+
     
     <joint name="ring_joint1" type="revolute">
         <parent link="palm"/>
@@ -577,6 +601,14 @@
 
     <link name="ring_distal">
     </link>
+
+    <joint name="ring_joint_tip" type="fixed">
+        <parent link="ring_distal"/>
+        <child link="ring_tip"/>
+        <origin xyz="0 0 0.064" rpy="0 0 0"/>
+    </joint>
+
+    <link name="ring_tip"></link>
 
     
     <joint name="little_joint0" type="revolute">
@@ -631,5 +663,13 @@
 
     <link name="little_distal">
     </link>
+
+    <joint name="little_joint_tip" type="fixed">
+        <parent link="little_distal"/>
+        <child link="little_tip"/>
+        <origin xyz="0 0 0.064" rpy="0 0 0"/>
+    </joint>
+
+    <link name="little_tip"></link>
 
 </robot>

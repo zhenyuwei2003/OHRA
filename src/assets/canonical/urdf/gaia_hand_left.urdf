@@ -14,20 +14,20 @@
     <link name="palm">
         <inertial>
             <origin xyz="0 0 0.05" rpy="0 0 0"/>
-            <mass value="0.1539384"/>
-            <inertia ixx="0.00019242300000000005" ixy="0.0" ixz="0.0" iyy="9.744352032800002e-05" iyz="0.0" izz="9.744352032800002e-05"/>
+            <mass value="0.15708000000000003"/>
+            <inertia ixx="0.00019635000000000006" ixy="0.0" ixz="0.0" iyy="9.948400000000004e-05" iyz="0.0" izz="9.948400000000004e-05"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.05" rpy="1.5708 0 1.5708"/>
             <geometry>
-                <cylinder radius="0.05" length="0.0196"/>
+                <cylinder radius="0.05" length="0.02"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.05" rpy="1.5708 0 1.5708"/>
             <geometry>
-                <cylinder radius="0.05" length="0.0196"/>
+                <cylinder radius="0.05" length="0.02"/>
             </geometry>
         </collision>
     </link>
@@ -54,47 +54,47 @@
     <link name="thumb_proximal">
         <inertial>
             <origin xyz="0 0 0.02695" rpy="0 0 0"/>
-            <mass value="0.0162626683296"/>
-            <inertia ixx="4.327672221413465e-06" ixy="0.0" ixz="0.0" 
-            iyy="4.327672221413465e-06" iyz="0.0" izz="7.80933333187392e-07"/>
+            <mass value="0.016933224"/>
+            <inertia ixx="4.522878241420001e-06" ixy="0.0" ixz="0.0"
+            iyy="4.522878241420001e-06" iyz="0.0" izz="8.466612e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.02695" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.034300000000000004"/>
+                <cylinder radius="0.01" length="0.0339"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0441" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0439" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.02695" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.034300000000000004"/>
+                <cylinder radius="0.01" length="0.0339"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0441" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0439" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
@@ -131,50 +131,58 @@
     <link name="thumb_distal">
         <inertial>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
-            <mass value="0.013577366879999999"/>
-            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
-            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+            <mass value="0.014137199999999999"/>
+            <inertia ixx="2.7390824999999994e-06" ixy="0.0" ixz="0.0"
+            iyy="2.7390824999999994e-06" iyz="0.0" izz="7.0686e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
+
+    <joint name="thumb_joint_tip" type="fixed">
+        <parent link="thumb_distal"/>
+        <child link="thumb_tip"/>
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+    </joint>
+
+    <link name="thumb_tip"></link>
 
     
     <joint name="index_joint1" type="revolute">
@@ -198,47 +206,47 @@
     <link name="index_proximal">
         <inertial>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
-            <mass value="0.014361836966400001"/>
-            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
-            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+            <mass value="0.014954016"/>
+            <inertia ixx="3.1973680076800003e-06" ixy="0.0" ixz="0.0"
+            iyy="3.1973680076800003e-06" iyz="0.0" izz="7.477008000000001e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
@@ -265,50 +273,58 @@
     <link name="index_distal">
         <inertial>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
-            <mass value="0.013577366879999999"/>
-            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
-            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+            <mass value="0.014137199999999999"/>
+            <inertia ixx="2.7390824999999994e-06" ixy="0.0" ixz="0.0"
+            iyy="2.7390824999999994e-06" iyz="0.0" izz="7.0686e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
+
+    <joint name="index_joint_tip" type="fixed">
+        <parent link="index_distal"/>
+        <child link="index_tip"/>
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+    </joint>
+
+    <link name="index_tip"></link>
 
     
     <joint name="middle_joint1" type="revolute">
@@ -332,47 +348,47 @@
     <link name="middle_proximal">
         <inertial>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
-            <mass value="0.014361836966400001"/>
-            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
-            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+            <mass value="0.014954016"/>
+            <inertia ixx="3.1973680076800003e-06" ixy="0.0" ixz="0.0"
+            iyy="3.1973680076800003e-06" iyz="0.0" izz="7.477008000000001e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
@@ -399,50 +415,58 @@
     <link name="middle_distal">
         <inertial>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
-            <mass value="0.013577366879999999"/>
-            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
-            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+            <mass value="0.014137199999999999"/>
+            <inertia ixx="2.7390824999999994e-06" ixy="0.0" ixz="0.0"
+            iyy="2.7390824999999994e-06" iyz="0.0" izz="7.0686e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
+
+    <joint name="middle_joint_tip" type="fixed">
+        <parent link="middle_distal"/>
+        <child link="middle_tip"/>
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+    </joint>
+
+    <link name="middle_tip"></link>
 
     
     <joint name="ring_joint1" type="revolute">
@@ -466,47 +490,47 @@
     <link name="ring_proximal">
         <inertial>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
-            <mass value="0.014361836966400001"/>
-            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
-            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+            <mass value="0.014954016"/>
+            <inertia ixx="3.1973680076800003e-06" ixy="0.0" ixz="0.0"
+            iyy="3.1973680076800003e-06" iyz="0.0" izz="7.477008000000001e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
@@ -533,50 +557,58 @@
     <link name="ring_distal">
         <inertial>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
-            <mass value="0.013577366879999999"/>
-            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
-            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+            <mass value="0.014137199999999999"/>
+            <inertia ixx="2.7390824999999994e-06" ixy="0.0" ixz="0.0"
+            iyy="2.7390824999999994e-06" iyz="0.0" izz="7.0686e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
+
+    <joint name="ring_joint_tip" type="fixed">
+        <parent link="ring_distal"/>
+        <child link="ring_tip"/>
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+    </joint>
+
+    <link name="ring_tip"></link>
 
     
     <joint name="little_joint0" type="revolute">
@@ -610,47 +642,47 @@
     <link name="little_proximal">
         <inertial>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
-            <mass value="0.014361836966400001"/>
-            <inertia ixx="3.0565340159791368e-06" ixy="0.0" ixz="0.0" 
-            iyy="3.0565340159791368e-06" iyz="0.0" izz="6.896554111265281e-07"/>
+            <mass value="0.014954016"/>
+            <inertia ixx="3.1973680076800003e-06" ixy="0.0" ixz="0.0"
+            iyy="3.1973680076800003e-06" iyz="0.0" izz="7.477008000000001e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0238" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.028000000000000004"/>
+                <cylinder radius="0.01" length="0.027600000000000003"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0378" rpy="0 0 0"/>
+            <origin xyz="0 0 0.0376" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
@@ -677,49 +709,57 @@
     <link name="little_distal">
         <inertial>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
-            <mass value="0.013577366879999999"/>
-            <inertia ixx="2.6171732397888e-06" ixy="0.0" ixz="0.0" 
-            iyy="2.6171732397888e-06" iyz="0.0" izz="6.519851575775999e-07"/>
+            <mass value="0.014137199999999999"/>
+            <inertia ixx="2.7390824999999994e-06" ixy="0.0" ixz="0.0"
+            iyy="2.7390824999999994e-06" iyz="0.0" izz="7.0686e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <visual>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
             <material name="default"/>
         </visual>
         <collision>
             <origin xyz="0 0 0.0225" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.0098" length="0.0254"/>
+                <cylinder radius="0.01" length="0.024999999999999998"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.0098" rpy="0 0 0"/>
+            <origin xyz="0 0 0.01" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
         <collision>
-            <origin xyz="0 0 0.035199999999999995" rpy="0 0 0"/>
+            <origin xyz="0 0 0.034999999999999996" rpy="0 0 0"/>
             <geometry>
-                <sphere radius="0.0098"/>
+                <sphere radius="0.01"/>
             </geometry>
         </collision>
     </link>
+
+    <joint name="little_joint_tip" type="fixed">
+        <parent link="little_distal"/>
+        <child link="little_tip"/>
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+    </joint>
+
+    <link name="little_tip"></link>
 
 </robot>

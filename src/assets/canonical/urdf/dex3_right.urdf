@@ -55,7 +55,8 @@
         <inertial>
             <origin xyz="0 0 0.0229" rpy="0 0 0"/>
             <mass value="0.0167827790592"/>
-            <inertia ixx="3.4230715595112964e-06" ixy="0.0" ixz="0.0" iyy="3.4230715595112964e-06" iyz="0.0" izz="9.787716747325442e-07"/>
+            <inertia ixx="3.4230715595112964e-06" ixy="0.0" ixz="0.0"
+            iyy="3.4230715595112964e-06" iyz="0.0" izz="9.787716747325442e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0229" rpy="0 0 0"/>
@@ -122,7 +123,7 @@
     <joint name="thumb_joint5" type="revolute">
         <parent link="thumb_middle"/>
         <child link="thumb_distal"/>
-        <origin xyz="0 0 0.0" rpy="0 0 0"/> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
         <limit lower="-1.7453" upper="0.0" effort="1.0" velocity="1.0"/>
     </joint>
@@ -131,7 +132,8 @@
         <inertial>
             <origin xyz="0 0 0.025" rpy="0 0 0"/>
             <mass value="0.018321811200000003"/>
-            <inertia ixx="4.351308014592001e-06" ixy="0.0" ixz="0.0" iyy="4.351308014592001e-06" iyz="0.0" izz="1.0685280291840003e-06"/>
+            <inertia ixx="4.351308014592001e-06" ixy="0.0" ixz="0.0"
+            iyy="4.351308014592001e-06" iyz="0.0" izz="1.0685280291840003e-06"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.025" rpy="0 0 0"/>
@@ -174,6 +176,14 @@
         </collision>
     </link>
 
+    <joint name="thumb_joint_tip" type="fixed">
+        <parent link="thumb_distal"/>
+        <child link="thumb_tip"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <link name="thumb_tip"></link>
+
     
     <joint name="index_joint1" type="revolute">
         <parent link="palm"/>
@@ -197,7 +207,8 @@
         <inertial>
             <origin xyz="0 0 0.0229" rpy="0 0 0"/>
             <mass value="0.0167827790592"/>
-            <inertia ixx="3.4230715595112964e-06" ixy="0.0" ixz="0.0" iyy="3.4230715595112964e-06" iyz="0.0" izz="9.787716747325442e-07"/>
+            <inertia ixx="3.4230715595112964e-06" ixy="0.0" ixz="0.0"
+            iyy="3.4230715595112964e-06" iyz="0.0" izz="9.787716747325442e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0229" rpy="0 0 0"/>
@@ -254,7 +265,7 @@
     <joint name="index_joint4" type="revolute">
         <parent link="index_middle"/>
         <child link="index_distal"/>
-        <origin xyz="0 0 0.0" rpy="0 0 0"/> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
         <limit lower="0.0" upper="1.7453" effort="1.0" velocity="1.0"/>
     </joint>
@@ -263,7 +274,8 @@
         <inertial>
             <origin xyz="0 0 0.025" rpy="0 0 0"/>
             <mass value="0.018321811200000003"/>
-            <inertia ixx="4.351308014592001e-06" ixy="0.0" ixz="0.0" iyy="4.351308014592001e-06" iyz="0.0" izz="1.0685280291840003e-06"/>
+            <inertia ixx="4.351308014592001e-06" ixy="0.0" ixz="0.0"
+            iyy="4.351308014592001e-06" iyz="0.0" izz="1.0685280291840003e-06"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.025" rpy="0 0 0"/>
@@ -306,6 +318,14 @@
         </collision>
     </link>
 
+    <joint name="index_joint_tip" type="fixed">
+        <parent link="index_distal"/>
+        <child link="index_tip"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <link name="index_tip"></link>
+
     
     <joint name="middle_joint1" type="revolute">
         <parent link="palm"/>
@@ -329,7 +349,8 @@
         <inertial>
             <origin xyz="0 0 0.0229" rpy="0 0 0"/>
             <mass value="0.0167827790592"/>
-            <inertia ixx="3.4230715595112964e-06" ixy="0.0" ixz="0.0" iyy="3.4230715595112964e-06" iyz="0.0" izz="9.787716747325442e-07"/>
+            <inertia ixx="3.4230715595112964e-06" ixy="0.0" ixz="0.0"
+            iyy="3.4230715595112964e-06" iyz="0.0" izz="9.787716747325442e-07"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.0229" rpy="0 0 0"/>
@@ -386,7 +407,7 @@
     <joint name="middle_joint4" type="revolute">
         <parent link="middle_middle"/>
         <child link="middle_distal"/>
-        <origin xyz="0 0 0.0" rpy="0 0 0"/> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
         <limit lower="0.0" upper="1.7453" effort="1.0" velocity="1.0"/>
     </joint>
@@ -395,7 +416,8 @@
         <inertial>
             <origin xyz="0 0 0.025" rpy="0 0 0"/>
             <mass value="0.018321811200000003"/>
-            <inertia ixx="4.351308014592001e-06" ixy="0.0" ixz="0.0" iyy="4.351308014592001e-06" iyz="0.0" izz="1.0685280291840003e-06"/>
+            <inertia ixx="4.351308014592001e-06" ixy="0.0" ixz="0.0"
+            iyy="4.351308014592001e-06" iyz="0.0" izz="1.0685280291840003e-06"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0.025" rpy="0 0 0"/>
@@ -438,6 +460,14 @@
         </collision>
     </link>
 
+    <joint name="middle_joint_tip" type="fixed">
+        <parent link="middle_distal"/>
+        <child link="middle_tip"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <link name="middle_tip"></link>
+
     
     <joint name="ring_joint1" type="revolute">
         <parent link="palm"/>
@@ -463,7 +493,7 @@
     <joint name="ring_joint3" type="revolute">
         <parent link="ring_proximal"/>
         <child link="ring_middle"/>
-        <origin xyz="0 0 0.0458" rpy="0 0 0"/> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
         <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
     </joint>
@@ -474,13 +504,21 @@
     <joint name="ring_joint4" type="revolute">
         <parent link="ring_middle"/>
         <child link="ring_distal"/>
-        <origin xyz="0 0 0.0" rpy="0 0 0"/> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
         <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
     </joint>
 
     <link name="ring_distal">
     </link>
+
+    <joint name="ring_joint_tip" type="fixed">
+        <parent link="ring_distal"/>
+        <child link="ring_tip"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <link name="ring_tip"></link>
 
     
     <joint name="little_joint0" type="revolute">
@@ -517,7 +555,7 @@
     <joint name="little_joint3" type="revolute">
         <parent link="little_proximal"/>
         <child link="little_middle"/>
-        <origin xyz="0 0 0.0458" rpy="0 0 0"/> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
         <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
     </joint>
@@ -528,12 +566,20 @@
     <joint name="little_joint4" type="revolute">
         <parent link="little_middle"/>
         <child link="little_distal"/>
-        <origin xyz="0 0 0.0" rpy="0 0 0"/> 
+        <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
         <limit lower="0.0" upper="0.0" effort="1.0" velocity="1.0"/>
     </joint>
 
     <link name="little_distal">
     </link>
+
+    <joint name="little_joint_tip" type="fixed">
+        <parent link="little_distal"/>
+        <child link="little_tip"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <link name="little_tip"></link>
 
 </robot>
