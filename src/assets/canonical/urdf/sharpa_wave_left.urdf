@@ -104,7 +104,7 @@
         <child link="thumb_knuckle"/>
         <origin xyz="0 0 0.071" rpy="0 0 0"/> 
         <axis xyz="1 0 0"/>
-        <limit lower="-0.5236" upper="1.3963" effort="1.0" velocity="1.0"/>
+        <limit lower="-0.3491" upper="0.3491" effort="1.0" velocity="1.0"/>
     </joint>
 
     <link name="thumb_knuckle"></link>
@@ -114,7 +114,7 @@
         <child link="thumb_middle"/>
         <origin xyz="0 0 0" rpy="0 0 0"/> 
         <axis xyz="0 1 0"/>
-        <limit lower="-0.3491" upper="0.3491" effort="1.0" velocity="1.0"/>
+        <limit lower="-0.5236" upper="1.3963" effort="1.0" velocity="1.0"/>
     </joint>
 
     <link name="thumb_middle">
