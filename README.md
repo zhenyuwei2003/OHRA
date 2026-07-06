@@ -41,7 +41,7 @@ pip install -e .
 ```
 
 ### Dataset:
-Download the [dataset](https://drive.google.com/file/d/1MI2mJLwGbg9ESIZwDBJvbGO3XlRuYOkb/view?usp=sharing) and extract it to the `data/` directory.
+Download the [dataset](https://drive.google.com/file/d/1Ery6WAayDxKgYpIbu7l8DXXVYV19rw78/view?usp=sharing) and extract it to the `data/` directory.
 
 ## Create a New Canonical Hand:
 1. Add the hand URDF file to `assets/robot_urdf/`.
